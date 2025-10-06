@@ -59,14 +59,14 @@ export async function POST(request: NextRequest) {
 
     response.cookies.set("token", token, {
       httpOnly: true,
-    //   secure: true,
-    //   sameSite: "strict",
-    //   maxAge: 86400,
-    //   path: "/",
+      //   secure: true,
+      //   sameSite: "strict",
+      //   maxAge: 86400,
+      //   path: "/",
     });
 
     return response;
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
